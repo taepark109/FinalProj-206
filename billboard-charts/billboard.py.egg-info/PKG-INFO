@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: billboard.py
+Version: 6.2.1
+Summary: Python API for downloading Billboard charts
+Home-page: https://github.com/guoguo12/billboard-charts
+Author: Allen Guo
+Author-email: guoguo12@gmail.com
+License: MIT License
+Description: UNKNOWN
+Platform: UNKNOWN
