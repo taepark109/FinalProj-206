@@ -23,21 +23,37 @@ def hot100():
 # Database implementation
 # #Set up Hot100 chart in Music.db
 def setuphot100():
+    #FIXED CODE
     conn = sqlite3.connect('Music.db') 
     cur = conn.cursor()
 
-    cur.execute("CREATE TABLE IF NOT EXISTS Hot100(title TEXT, artist TEXT, rank INTEGER)")
-
+    cur.execute('''CREATE TABLE IF NOT EXISTS Hot100
+        (title TEXT, artist TEXT, rank INTEGER)''')
+    title_lst = []
     chart = hot100()
+    count = 0
+    data = cur.execute('''SELECT title FROM Hot100''')
+    for x in data:
+        title_lst.append(x[0])
     for item in chart:
         _title = item.title
         _artist = item.artist
         _rank = item.rank
-        cur.execute("INSERT OR IGNORE INTO Hot100(title, artist, rank) VALUES (?,?,?)", (_title, _artist, _rank))
+        tup = _title, _artist, _rank
+        if count == 25:
+            break
+        if tup[0] in title_lst:
+            continue
+        else:
+            cur.execute("INSERT OR IGNORE INTO Hot100(title, artist, rank) VALUES (?,?,?)", (_title, _artist, _rank))
+            count += 1
 
     conn.commit()
+    conn.close()
 
-#Set up Pop chart in Music.db
+
+    
+   
 def setupPop():
     conn = sqlite3.connect('Music.db') 
     cur = conn.cursor()
@@ -70,13 +86,13 @@ def setupAlt():
 
 
 def main():
-    print(pop())
-    print(alt())
-    print(hot100())
+    # print(pop())
+    # print(alt())
+    # print(hot100())
     
     setuphot100()
-    setupAlt()
-    setupPop()
+    # setupAlt()
+    # setupPop()
 
 
 if __name__ == '__main__':
