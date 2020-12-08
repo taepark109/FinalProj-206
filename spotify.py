@@ -58,7 +58,7 @@ def track_id_lstPop(data_lst):
                 r = requests.get(BASE_URL + q, headers=headers)
                 txt = r.text
                 obj = json.loads(txt)
-                ids = obj['tracks']['items'][0]['album']['artists'][0]['id']
+                ids = obj['tracks']['items'][1]['id']
                 id_lst.append((title, artist, ids, rank))
             else:
                 artist = item[1].replace(feat, '')
@@ -66,14 +66,14 @@ def track_id_lstPop(data_lst):
                 r = requests.get(BASE_URL + q, headers=headers)
                 txt = r.text
                 obj = json.loads(txt)
-                ids = obj['tracks']['items'][0]['album']['artists'][0]['id']
+                ids = obj['tracks']['items'][0]['id']
                 id_lst.append((title, artist, ids, rank))
         else:
             q= f"q=track:{title}%20artist:{artist}&type=track"
             r = requests.get(BASE_URL + q, headers=headers)
             txt = r.text
             obj = json.loads(txt)
-            ids = obj['tracks']['items'][0]['album']['artists'][0]['id']
+            ids = obj['tracks']['items'][1]['id']
             id_lst.append((title, artist, ids, rank))
     # print(id_lst)
     return id_lst
@@ -164,7 +164,7 @@ def track_id_lstAlt(data_lst):
                 r = requests.get(BASE_URL + q, headers=headers)
                 txt = r.text
                 obj = json.loads(txt)
-                ids = obj['tracks']['items'][0]['album']['artists'][0]['id']
+                ids = obj['tracks']['items'][1]['id']
                 id_lst.append((title, artist, ids, rank))
             else:
                 artist = item[1].replace(feat, '')
@@ -172,7 +172,7 @@ def track_id_lstAlt(data_lst):
                 r = requests.get(BASE_URL + q, headers=headers)
                 txt = r.text
                 obj = json.loads(txt)
-                ids = obj['tracks']['items'][0]['album']['artists'][0]['id']
+                ids = obj['tracks']['items'][0]['id']
                 id_lst.append((title, artist, ids, rank))
         elif apos in item[0]:
             title = title.replace(apos, "")
@@ -180,14 +180,14 @@ def track_id_lstAlt(data_lst):
             r = requests.get(BASE_URL + q, headers=headers)
             txt = r.text
             obj = json.loads(txt)
-            ids = obj['tracks']['items'][0]['album']['artists'][0]['id']
+            ids = obj['tracks']['items'][0]['id']
             id_lst.append((title, artist, ids, rank))
         else:
             q= f"q=track:{title}%20artist:{artist}&type=track"
             r = requests.get(BASE_URL + q, headers=headers)
             txt = r.text
             obj = json.loads(txt)
-            ids = obj['tracks']['items'][0]['album']['artists'][0]['id']
+            ids = obj['tracks']['items'][0]['id']
             id_lst.append((title, artist, ids, rank))
 
     # print(id_lst)
@@ -267,12 +267,14 @@ def setupvalence_hot100(lst):
     # conn.close()
 def main():
     # a = read_from_db('Pop')
-    # track_id_lstPop(a)
-    a = read_from_db('Hot100')
-    lst = track_id_lstHot100(a)
+    # lst = track_id_lstPop(a)
+    # check_tracks(lst)
+    # a = read_from_db('Hot100')
+    # lst = track_id_lstHot100(a)
+    # check_tracks(lst)
+    a = read_from_db('Alt')
+    lst = track_id_lstAlt(a)
     check_tracks(lst)
-    # a = read_from_db('Alt')
-    # track_id_lstAlt(a)
     # setupvalence_hot100(lst)
 
 if __name__ == '__main__':
