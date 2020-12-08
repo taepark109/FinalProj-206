@@ -151,20 +151,31 @@ def track_id_lstAlt(data_lst):
     BASE_URL = 'https://api.spotify.com/v1/search?'
     count = 0
     id_lst = []
+
+    # q= f"q=track:Go%20artist:The Black Keys&type=track"
+    # r = requests.get(BASE_URL + q, headers=headers)
+    # txt = r.text
+    # obj = json.loads(txt)
+    # # print(obj)
+    # ids = obj['tracks']['items'][1]['id']
+    # print(ids)
+    # id_lst.append((title, artist, ids, rank))
     for item in data_lst:
         title = item[0]
         artist = item[1]
         rank = item[2]
         feat = "Featuring "
         apos = "'"
-        if feat in item[1] and count < 2:
+        if feat in item[1]:
             if item[0] == "You're Somebody Else":
                 title = title.replace("You're Somebody Else", "Youre Somebody Else")
                 q= f"q=track:{title}%20artist:{artist}&type=track"
                 r = requests.get(BASE_URL + q, headers=headers)
                 txt = r.text
                 obj = json.loads(txt)
+                print(obj)
                 ids = obj['tracks']['items'][1]['id']
+                print(ids)
                 id_lst.append((title, artist, ids, rank))
             else:
                 artist = item[1].replace(feat, '')
@@ -220,7 +231,7 @@ def setupvalence_hot100(lst):
     BASE_URL = 'https://api.spotify.com/v1/'
 
     # Track ID from the URI
-    track_id = '20sxb77xiYeusSH8cVdatc'
+    track_id = '17C1AVZVh5jhJU4eAcovpl'
 
     # actual GET request with proper header
     r = requests.get(BASE_URL + 'audio-features/' + track_id, headers=headers)
@@ -274,8 +285,8 @@ def main():
     # check_tracks(lst)
     a = read_from_db('Alt')
     lst = track_id_lstAlt(a)
-    check_tracks(lst)
-    # setupvalence_hot100(lst)
+    # check_tracks(lst)
+    setupvalence_hot100(lst)
 
 if __name__ == '__main__':
     main()
