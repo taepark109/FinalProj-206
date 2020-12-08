@@ -87,19 +87,6 @@ def track_id_lstHot100(data_lst):
         artist = item[1]
         rank = item[2]
         feat = "Featuring "
-    # q= f"q=track:Bury A Friend%20artist:Billie Eilish&type=track"
-    # r = requests.get(BASE_URL + q, headers=headers)
-    # txt = r.text
-    # lst = []
-    # obj = json.loads(txt)
-    # ids = obj['tracks']['items'][0]['id']#[3]
-    # print(ids)
-    
-    # id_lst.append((title, artist, ids, rank))
-
-
-
-
         if item[0] == 'Bury A Friend':
             q= f"q=track:Bury A Friend%20artist:Billie Eilish&type=track"
             r = requests.get(BASE_URL + q, headers=headers)
