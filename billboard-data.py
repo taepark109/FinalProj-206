@@ -13,7 +13,7 @@ def alt():
     chart = billboard.ChartData('alternative-songs', year=2019)
     return chart
 
-# Get Hot 100 Rap Songs in 2019
+# Get Hot 100 Songs in 2019
 def hot100():
     chart = billboard.ChartData('hot-100-songs', year = 2019)
     return chart
@@ -51,6 +51,8 @@ def setuphot100():
     conn.commit()
     conn.close()
 
+
+# Set up Pop music chart in Music.db
 def setupPop():
     conn = sqlite3.connect('Music.db') 
     cur = conn.cursor()
