@@ -226,19 +226,9 @@ def setupvalence(lst, track_name):
     BASE_URL = 'https://api.spotify.com/v1/'
     val_lst = []
     #loop through list and each time get the id
-    for song in lst:
-        #song info
-        track = song[0]
-        artist = song[1]
-        track_id = song[2]
-        rank = song[3]
-        #getting valence
-        r = requests.get(BASE_URL + 'audio-features/' + track_id, headers=headers)
-        txt = r.text
-        obj = json.loads(txt)
-        val = obj['valence']
+
         #creating val_lst
-        val_lst.append((track, artist, val, rank))
+        # val_lst.append((title, artist, val, rank))
     #put into database
     conn = sqlite3.connect('Music.db')
     cur = conn.cursor()
@@ -247,14 +237,28 @@ def setupvalence(lst, track_name):
         (title TEXT, artist TEXT, valence FLOAT, rank INTEGER)''')
     title_lst = []
     count = 0
-    data = cur.execute('''SELECT title FROM ValHot100''')
+    data = cur.execute(f'''SELECT title FROM {track_name}''')
     for x in data:
         title_lst.append(x[0])
-    for item in lst:
-        _title = item[0]
-        _artist = item[1]
-        _valence = ...#write code
-        _rank = _item[4]
+    for song in lst:
+        #song info
+        title = song[0]
+        artist = song[1]
+        track_id = song[2]
+        rank = song[3]
+        #getting valence
+        r = requests.get(BASE_URL + 'audio-features/' + track_id, headers=headers)
+        txt = r.text
+        obj = json.loads(txt)
+        val = obj['valence']
+        tup = title, artist, val, rank
+        if count == 25:
+            break
+        if tup[0] in title_lst:
+            continue
+        else:
+            cur.execute("INSERT OR IGNORE INTO Hot100(title, artist, valence, rank) VALUES (?,?,?, ?)", (title, artist, val, rank))
+            count += 1
     conn.commit()
     conn.close()
 
