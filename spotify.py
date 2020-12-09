@@ -221,11 +221,6 @@ def check_tracks(id_lst):
         track_name = obj['name']
         print(track_name)
 
-
-
-
-
-
 #Use ID's to find the audio features for songs: Valence
 def setupvalence_hot100(lst):
     BASE_URL = 'https://api.spotify.com/v1/'
