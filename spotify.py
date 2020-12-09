@@ -225,7 +225,6 @@ def check_tracks(id_lst):
 def setuphot100valence(lst):
     BASE_URL = 'https://api.spotify.com/v1/'
     #loop through list and each time get the id
-    val_lst = []
         #creating val_lst
         # val_lst.append((title, artist, val, rank))
     #put into database
@@ -233,7 +232,7 @@ def setuphot100valence(lst):
     cur = conn.cursor()
     #is using an fstring okay for this?
     cur.execute('''CREATE TABLE IF NOT EXISTS Hot100Valence
-        (title TEXT, artist TEXT, valence FLOAT, rank INTEGER)''')
+        (title TEXT, artist TEXT, valence FLOAT, danceability FLOAT, rank INTEGER)''')
     title_lst = []
     count = 0
     data = cur.execute('''SELECT title FROM Hot100Valence''')
@@ -249,44 +248,122 @@ def setuphot100valence(lst):
         r = requests.get(BASE_URL + 'audio-features/' + track_id, headers=headers)
         txt = r.text
         obj = json.loads(txt)
+        # print(obj)
         val = obj['valence']
-        tup = title, artist, val, rank
+        dan = obj['danceability']
+        tup = title, artist, val, dan, rank
         if count == 25:
             break
         if tup[0] in title_lst:
             continue
         else:
-            cur.execute("INSERT OR IGNORE INTO Hot100Valence(title, artist, valence, rank) VALUES (?,?,?, ?)", (title, artist, val, rank))
+            cur.execute("INSERT OR IGNORE INTO Hot100Valence(title, artist, valence, danceability, rank) VALUES (?,?,?,?, ?)", (title, artist, val, dan, rank))
+            count += 1
+    conn.commit()
+    conn.close()
+
+def setupaltvalence(lst):
+    BASE_URL = 'https://api.spotify.com/v1/'
+    #loop through list and each time get the id
+        #creating val_lst
+        # val_lst.append((title, artist, val, rank))
+    #put into database
+    conn = sqlite3.connect('Music.db')
+    cur = conn.cursor()
+    #is using an fstring okay for this?
+    cur.execute('''CREATE TABLE IF NOT EXISTS AltValence
+        (title TEXT, artist TEXT, valence FLOAT, danceability FLOAT, rank INTEGER)''')
+    title_lst = []
+    count = 0
+    data = cur.execute('''SELECT title FROM AltValence''')
+    for x in data:
+        title_lst.append(x[0])
+    for song in lst:
+        #song info
+        title = song[0]
+        artist = song[1]
+        track_id = song[2]
+        rank = song[3]
+        #getting valence
+        r = requests.get(BASE_URL + 'audio-features/' + track_id, headers=headers)
+        txt = r.text
+        obj = json.loads(txt)
+        val = obj['valence']
+        dan = obj['danceability']
+        print(dan)
+        tup = title, artist, val, dan, rank
+        if count == 25:
+            break
+        if tup[0] in title_lst:
+            continue
+        else:
+            cur.execute("INSERT OR IGNORE INTO AltValence(title, artist, valence, danceability, rank) VALUES (?,?,?,?,?)", (title, artist, val, dan, rank))
+            count += 1
+    conn.commit()
+    conn.close()
+
+def setuppopvalence(lst):
+    BASE_URL = 'https://api.spotify.com/v1/'
+    #loop through list and each time get the id
+        #creating val_lst
+        # val_lst.append((title, artist, val, rank))
+    #put into database
+    conn = sqlite3.connect('Music.db')
+    cur = conn.cursor()
+    #is using an fstring okay for this?
+    cur.execute('''CREATE TABLE IF NOT EXISTS PopValence
+        (title TEXT, artist TEXT, valence FLOAT, danceability FLOAT, rank INTEGER)''')
+    title_lst = []
+    count = 0
+    data = cur.execute('''SELECT title FROM PopValence''')
+    for x in data:
+        title_lst.append(x[0])
+    for song in lst:
+        #song info
+        title = song[0]
+        artist = song[1]
+        track_id = song[2]
+        rank = song[3]
+        #getting valence
+        r = requests.get(BASE_URL + 'audio-features/' + track_id, headers=headers)
+        txt = r.text
+        obj = json.loads(txt)
+        val = obj['valence']
+        dan = obj['danceability']
+        # print(dan)
+        # print(val)
+        # print(rank)
+        tup = title, artist, val, dan, rank
+        # print(tup)
+        if count == 25:
+            break
+        if tup[0] in title_lst:
+            continue
+        else:
+            cur.execute("INSERT OR IGNORE INTO PopValence(title, artist, valence, danceability, rank) VALUES (?,?,?,?,?)", (title, artist, val, dan, rank))
             count += 1
     conn.commit()
     conn.close()
 
 
-    #get the valence and append it to the val list ((track, artist, valence, rank))
-
-
-    # Track ID from the URI
-    #test track below:
-    # track_id = '17C1AVZVh5jhJU4eAcovpl'
-
-    # actual GET request with proper header
-
-    
-    # conn = sqlite3.connect('Music.db')
-    # cur = conn.cursor()
-
-
 def main():
+    #Pop
     # a = read_from_db('Pop')
-    # lst = track_id_lstPop(a)
+    # pop_lst = track_id_lstPop(a)
+    # setuppopvalence(pop_lst)
     # check_tracks(lst)
-    # check_tracks(lst)
-    # a = read_from_db('Alt')
-    # lst = track_id_lstAlt(a)
-    # check_tracks(lst)
-    a = read_from_db('Hot100')
-    lst = track_id_lstHot100(a)
+
+    #Alt
+    # b = read_from_db('Alt')
+    # alt_lst = track_id_lstAlt(b)
+    # # # check_tracks(lst)
+    # setupaltvalence(alt_lst)
+    #Hot100
+    c = read_from_db('Hot100')
+    lst = track_id_lstHot100(c)
+    # # check_tracks(lst)
     setuphot100valence(lst)
+
 
 if __name__ == '__main__':
     main()
