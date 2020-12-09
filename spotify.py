@@ -222,22 +222,21 @@ def check_tracks(id_lst):
         print(track_name)
 
 #Use ID's to find the audio features for songs: Valence
-def setupvalence(lst, track_name):
+def setuphot100valence(lst):
     BASE_URL = 'https://api.spotify.com/v1/'
-    val_lst = []
     #loop through list and each time get the id
-
+    val_lst = []
         #creating val_lst
         # val_lst.append((title, artist, val, rank))
     #put into database
     conn = sqlite3.connect('Music.db')
     cur = conn.cursor()
     #is using an fstring okay for this?
-    cur.execute(f'''CREATE TABLE IF NOT EXISTS {track_name}
+    cur.execute('''CREATE TABLE IF NOT EXISTS Hot100Valence
         (title TEXT, artist TEXT, valence FLOAT, rank INTEGER)''')
     title_lst = []
     count = 0
-    data = cur.execute(f'''SELECT title FROM {track_name}''')
+    data = cur.execute('''SELECT title FROM Hot100Valence''')
     for x in data:
         title_lst.append(x[0])
     for song in lst:
@@ -257,7 +256,7 @@ def setupvalence(lst, track_name):
         if tup[0] in title_lst:
             continue
         else:
-            cur.execute("INSERT OR IGNORE INTO Hot100(title, artist, valence, rank) VALUES (?,?,?, ?)", (title, artist, val, rank))
+            cur.execute("INSERT OR IGNORE INTO Hot100Valence(title, artist, valence, rank) VALUES (?,?,?, ?)", (title, artist, val, rank))
             count += 1
     conn.commit()
     conn.close()
@@ -287,7 +286,7 @@ def main():
     # check_tracks(lst)
     a = read_from_db('Hot100')
     lst = track_id_lstHot100(a)
-    setupvalence(lst)
+    setuphot100valence(lst)
 
 if __name__ == '__main__':
     main()
