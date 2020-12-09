@@ -222,66 +222,68 @@ def check_tracks(id_lst):
         print(track_name)
 
 #Use ID's to find the audio features for songs: Valence
-def setupvalence_hot100(lst):
+def setupvalence(lst, track_name):
     BASE_URL = 'https://api.spotify.com/v1/'
+    val_lst = []
+    #loop through list and each time get the id
+    for song in lst:
+        #song info
+        track = song[0]
+        artist = song[1]
+        track_id = song[2]
+        rank = song[3]
+        #getting valence
+        r = requests.get(BASE_URL + 'audio-features/' + track_id, headers=headers)
+        txt = r.text
+        obj = json.loads(txt)
+        val = obj['valence']
+        #creating val_lst
+        val_lst.append((track, artist, val, rank))
+    #put into database
+    conn = sqlite3.connect('Music.db')
+    cur = conn.cursor()
+    #is using an fstring okay for this?
+    cur.execute(f'''CREATE TABLE IF NOT EXISTS {track_name}
+        (title TEXT, artist TEXT, valence FLOAT, rank INTEGER)''')
+    title_lst = []
+    count = 0
+    data = cur.execute('''SELECT title FROM ValHot100''')
+    for x in data:
+        title_lst.append(x[0])
+    for item in lst:
+        _title = item[0]
+        _artist = item[1]
+        _valence = ...#write code
+        _rank = _item[4]
+    conn.commit()
+    conn.close()
+
+
+    #get the valence and append it to the val list ((track, artist, valence, rank))
+
 
     # Track ID from the URI
-    track_id = '17C1AVZVh5jhJU4eAcovpl'
+    #test track below:
+    # track_id = '17C1AVZVh5jhJU4eAcovpl'
 
     # actual GET request with proper header
-    r = requests.get(BASE_URL + 'audio-features/' + track_id, headers=headers)
-    txt = r.text
-    obj = json.loads(txt)
-    print(obj)
-
-
-
-
-
-    #get all valences
-    # val_lst = []
-    # for item in lst:
-    #     track_id = item[2]
-    #     val_lst.append(track_id)
-    # for item in val_lst:
-    #     track_id = item
-    #     r = requests.get(BASE_URL + 'audio-features/' + track_id, headers=headers)
-    #     txt = r.text
-    #     obj = json.loads(txt)
-    #     print(obj)
-    # # print(val_lst)
-    # new_lst = []
-
 
     
     # conn = sqlite3.connect('Music.db')
     # cur = conn.cursor()
 
-    # cur.execute('''CREATE TABLE IF NOT EXISTS ValHot100
-    #     (title TEXT, artist TEXT, valence FLOAT, rank INTEGER)''')
-    # title_lst = []
-    # count = 0
-    # data = cur.execute('''SELECT title FROM ValHot100''')
-    # for x in data:
-    #     title_lst.append(x[0])
-    # for item in lst:
-    #     _title = item[0]
-    #     _artist = item[1]
-    #     _valence = ...#write code
-    #     _rank = _item[4]
-    # conn.commit()
-    # conn.close()
+
 def main():
     # a = read_from_db('Pop')
     # lst = track_id_lstPop(a)
     # check_tracks(lst)
-    # a = read_from_db('Hot100')
-    # lst = track_id_lstHot100(a)
     # check_tracks(lst)
-    a = read_from_db('Alt')
-    lst = track_id_lstAlt(a)
+    # a = read_from_db('Alt')
+    # lst = track_id_lstAlt(a)
     # check_tracks(lst)
-    setupvalence_hot100(lst)
+    a = read_from_db('Hot100')
+    lst = track_id_lstHot100(a)
+    setupvalence(lst)
 
 if __name__ == '__main__':
     main()
