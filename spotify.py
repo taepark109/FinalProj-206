@@ -290,7 +290,7 @@ def setupaltvalence(lst):
         obj = json.loads(txt)
         val = obj['valence']
         dan = obj['danceability']
-        print(dan)
+        # print(dan)
         tup = title, artist, val, dan, rank
         if count == 25:
             break
@@ -348,16 +348,16 @@ def setuppopvalence(lst):
 
 def main():
     #Pop
-    # a = read_from_db('Pop')
-    # pop_lst = track_id_lstPop(a)
-    # setuppopvalence(pop_lst)
+    a = read_from_db('Pop')
+    pop_lst = track_id_lstPop(a)
+    setuppopvalence(pop_lst)
     # check_tracks(lst)
 
     #Alt
-    # b = read_from_db('Alt')
-    # alt_lst = track_id_lstAlt(b)
-    # # # check_tracks(lst)
-    # setupaltvalence(alt_lst)
+    b = read_from_db('Alt')
+    alt_lst = track_id_lstAlt(b)
+    # # check_tracks(lst)
+    setupaltvalence(alt_lst)
     #Hot100
     c = read_from_db('Hot100')
     lst = track_id_lstHot100(c)
