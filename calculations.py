@@ -5,6 +5,8 @@ import re
 import os
 import matplotlib
 import matplotlib.pyplot as plt
+from statistics import mean
+import numpy as np
 
 # CALCULATIONS
 
@@ -206,44 +208,57 @@ def visualize():
     _altx = dancealtxy()[0]
     _alty = dancealtxy()[1]
 
+
     fig = plt.figure()
     
-    
+    #light pink, light blue, lavender
     ax = fig.add_subplot(231)
-    ax.scatter(hot100x, hot100y)
+    ax.scatter(hot100x, hot100y, c = 'lightpink')
     ax.set_xlabel("Ranks")
     ax.set_ylabel("Valence")
     ax.set_title("Valence of the Top Hot100 Songs in 2019")
 
+    ax.plot(np.unique(hot100x), np.poly1d(np.polyfit(hot100x, hot100y, 1))(np.unique(hot100x)), c = 'black')
+
     ax2 = fig.add_subplot(232)
-    ax2.scatter(popx, popy)
+    ax2.scatter(popx, popy, c = 'lightblue')
     ax2.set_xlabel("Ranks")
     ax2.set_ylabel("Valence")
     ax2.set_title("Valence of the Top Pop Songs in 2019")
 
+    ax2.plot(np.unique(popx), np.poly1d(np.polyfit(popx, popy, 1))(np.unique(popx)), c = 'black')
+
     ax3 = fig.add_subplot(233)
-    ax3.scatter(altx, alty)
+    ax3.scatter(altx, alty, c = 'darkseagreen')
     ax3.set_xlabel("Ranks")
     ax3.set_ylabel("Valence")
     ax3.set_title("Valence of the Top Alt Songs in 2019")
 
+    ax3.plot(np.unique(altx), np.poly1d(np.polyfit(altx, alty, 1))(np.unique(altx)), c = 'black')
+
     ax4 = fig.add_subplot(234)
-    ax4.scatter(_hot100x, _hot100y)
+    ax4.scatter(_hot100x, _hot100y, c = 'lightpink')
     ax4.set_xlabel("Ranks")
     ax4.set_ylabel("Danceability")
     ax4.set_title("Danceability of the Top Hot100 Songs in 2019")
 
+    ax4.plot(np.unique(_hot100x), np.poly1d(np.polyfit(_hot100x, _hot100y, 1))(np.unique(_hot100x)), c = 'black')
+
     ax5 = fig.add_subplot(235)
-    ax5.scatter(_popx, _popy)
+    ax5.scatter(_popx, _popy, c = 'lightblue')
     ax5.set_xlabel("Ranks")
     ax5.set_ylabel("Danceability")
     ax5.set_title("Danceability of the Top Pop Songs in 2019")
 
+    ax5.plot(np.unique(_popx), np.poly1d(np.polyfit(_popx, _popy, 1))(np.unique(_popx)), c = 'black')
+
     ax6 = fig.add_subplot(236)
-    ax6.scatter(_altx, _alty)
+    ax6.scatter(_altx, _alty, c = 'darkseagreen')
     ax6.set_xlabel("Ranks")
     ax6.set_ylabel("Danceability")
     ax6.set_title("Danceability of the Top Alt Songs in 2019")
+
+    ax6.plot(np.unique(_altx), np.poly1d(np.polyfit(_altx, _alty, 1))(np.unique(_altx)), c = 'black')
 
     plt.show()
 
