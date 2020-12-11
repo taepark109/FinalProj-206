@@ -3,6 +3,7 @@ import requests
 import json
 import re
 import os
+import matplotlib.pyplot as plt
 
 # CALCULATIONS
 
@@ -85,12 +86,33 @@ def Altavg():
 
 # VISUALIZATIONS
 
-def 
+def hot100vis():
+    valences = []
+    ranks = []
+    cur.execute("SELECT rank, valence FROM Hot100Valence")
+    for row in cur:
+        rank = row[0]
+        valence = row[1]
+        ranks.append(rank)
+        valences.append(valences)
+
+    xvals = ranks
+    yvals = valences
+    
+    fig = plt.figure()
+    ax = fig.add_axes([0,0,1,1])
+    ax.scatter(xvals, yvals, color = 'b')
+    ax.set_xlabel("Ranks")
+    ax.set_ylabel("Valence")
+    ax.set_title("Valence of the Hot100 Songs in 2019")
+    plt.show
+
 
 def main():
     Hot100avg()
     Popavg()
     Altavg()
+    hot100vis()
     
 
 
