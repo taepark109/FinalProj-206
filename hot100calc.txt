@@ -1,0 +1,100 @@
+The average between valence and danceability for Old Town Road by Lil Nas X Featuring Billy Ray Cyrus is 0.7585.
+The average between valence and danceability for Sunflower (Spider-Man: Into The Spider-Verse) by Post Malone & Swae Lee is 0.8400000000000001.
+The average between valence and danceability for Without Me by Halsey is 0.6425000000000001.
+The average between valence and danceability for Bad Guy by Billie Eilish is 0.675.
+The average between valence and danceability for Wow. by Post Malone is 0.6415.
+The average between valence and danceability for Happier by Marshmello & Bastille is 0.5155.
+The average between valence and danceability for 7 Rings by Ariana Grande is 0.548.
+The average between valence and danceability for Talk by Khalid is 0.619.
+The average between valence and danceability for Sicko Mode by Travis Scott is 0.547.
+The average between valence and danceability for Sucker by Jonas Brothers is 0.897.
+The average between valence and danceability for High Hopes by Panic! At The Disco is 0.43899999999999995.
+The average between valence and danceability for Thank U, Next by Ariana Grande is 0.5755.
+The average between valence and danceability for Truth Hurts by Lizzo is 0.5429999999999999.
+The average between valence and danceability for Dancing With A Stranger by Sam Smith & Normani is 0.544.
+The average between valence and danceability for Senorita by Shawn Mendes & Camila Cabello is 0.754.
+The average between valence and danceability for I Don't Care by Ed Sheeran & Justin Bieber is 0.8205.
+The average between valence and danceability for Eastside by benny blanco, Halsey & Khalid is 0.48050000000000004.
+The average between valence and danceability for Going Bad by Meek Mill Featuring Drake is 0.7165.
+The average between valence and danceability for Shallow by Lady Gaga & Bradley Cooper is 0.426.
+The average between valence and danceability for Better by Khalid is 0.421.
+The average between valence and danceability for No Guidance by Chris Brown Featuring Drake is 0.416.
+The average between valence and danceability for Girls Like You by Maroon 5 Featuring Cardi B is 0.6495.
+The average between valence and danceability for Sweet But Psycho by Ava Max is 0.5345.
+The average between valence and danceability for Suge by DaBaby is 0.8465.
+The average between valence and danceability for Middle Child by J. Cole is 0.6759999999999999.
+The average between valence and danceability for Drip Too Hard by Lil Baby & Gunna is 0.6495.
+The average between valence and danceability for Someone You Loved by Lewis Capaldi is 0.47350000000000003.
+The average between valence and danceability for Ran$om by Lil Tecca is 0.5670000000000001.
+The average between valence and danceability for If I Can't Have You by Shawn Mendes is 0.7805.
+The average between valence and danceability for Goodbyes by Post Malone Featuring Young Thug is 0.35550000000000004.
+The average between valence and danceability for ZEZE by Kodak Black Featuring Travis Scott & Offset is 0.6825.
+The average between valence and danceability for Better Now by Post Malone is 0.519.
+The average between valence and danceability for Youngblood by 5 Seconds Of Summer is 0.374.
+The average between valence and danceability for Money In The Grave by Drake Featuring Rick Ross is 0.46599999999999997.
+The average between valence and danceability for Speechless by Dan + Shay is 0.5245.
+The average between valence and danceability for Break Up With Your Girlfriend, I'm Bored by Ariana Grande is 0.4155.
+The average between valence and danceability for Please Me by Cardi B & Bruno Mars is 0.706.
+The average between valence and danceability for Money by Cardi B is 0.7005.
+The average between valence and danceability for You Need To Calm Down by Taylor Swift is 0.7324999999999999.
+The average between valence and danceability for Panini by Lil Nas X is 0.589.
+The average between valence and danceability for Look Back At It by A Boogie Wit da Hoodie is 0.6635.
+The average between valence and danceability for A Lot by 21 Savage is 0.5555.
+The average between valence and danceability for ME! by Taylor Swift Featuring Brendon Urie is 0.669.
+The average between valence and danceability for MIA by Bad Bunny Featuring Drake is 0.4875.
+The average between valence and danceability for Pop Out by Polo G Featuring Lil Tjay is 0.5165.
+The average between valence and danceability for Beautiful Crazy by Luke Combs is 0.469.
+The average between valence and danceability for Thotiana by Blueface is 0.8.
+The average between valence and danceability for Lucid Dreams by Juice WRLD is 0.3645.
+The average between valence and danceability for Mo Bamba by Sheck Wes is 0.515.
+The average between valence and danceability for Beautiful People by Ed Sheeran Featuring Khalid is 0.5940000000000001.
+The average between valence and danceability for Wake Up In The Sky by Gucci Mane X Bruno Mars X Kodak Black is 0.5835.
+The average between valence and danceability for Whiskey Glasses by Morgan Wallen is 0.644.
+The average between valence and danceability for God's Country by Blake Shelton is 0.374.
+The average between valence and danceability for Be Alright by Dean Lewis is 0.522.
+The average between valence and danceability for Pure Water by Mustard & Migos is 0.40950000000000003.
+The average between valence and danceability for The Git Up by Blanco Brown is 0.7865.
+The average between valence and danceability for Taki Taki by DJ Snake Featuring Selena Gomez, Ozuna & Cardi B is 0.7295.
+The average between valence and danceability for Close To Me by Ellie Goulding X Diplo Featuring Swae Lee is 0.5235.
+The average between valence and danceability for Envy Me by Calboy is 0.5685.
+The average between valence and danceability for You Say by Lauren Daigle is 0.3965.
+The average between valence and danceability for Hey Look Ma, I Made It by Panic! At The Disco is 0.5249999999999999.
+The average between valence and danceability for Circles by Post Malone is 0.7315.
+The average between valence and danceability for Beer Never Broke My Heart by Luke Combs is 0.5875.
+The average between valence and danceability for The London by Young Thug, J. Cole & Travis Scott is 0.495.
+The average between valence and danceability for Con Calma by Daddy Yankee & Katy Perry Featuring Snow is 0.6965.
+The average between valence and danceability for Murder On My Mind by YNW Melly is 0.538.
+The average between valence and danceability for When The Party's Over by Billie Eilish is 0.3255.
+The average between valence and danceability for Act Up by City Girls is 0.6255.
+The average between valence and danceability for I Like It by Cardi B, Bad Bunny & J Balvin is 0.7284999999999999.
+The average between valence and danceability for Trampoline by SHAED is 0.5585.
+The average between valence and danceability for Leave Me Alone by Flipp Dinero is 0.767.
+The average between valence and danceability for Breathin by Ariana Grande is 0.2465.
+The average between valence and danceability for Bury A Friend by Billie Eilish is 0.5505.
+The average between valence and danceability for Close Friends by Lil Baby is 0.6845.
+The average between valence and danceability for Baby Shark by Pinkfong is 0.6725.
+The average between valence and danceability for My Type by Saweetie is 0.8415.
+The average between valence and danceability for Worth It by YK Osiris is 0.593.
+The average between valence and danceability for Only Human by Jonas Brothers is 0.8155.
+The average between valence and danceability for Knockin' Boots by Luke Bryan is 0.6855.
+The average between valence and danceability for Trip by Ella Mai is 0.46699999999999997.
+The average between valence and danceability for Rumor by Lee Brice is 0.6234999999999999.
+The average between valence and danceability for Swervin by A Boogie Wit da Hoodie Featuring 6ix9ine is 0.5075.
+The average between valence and danceability for How Do You Sleep? by Sam Smith is 0.462.
+The average between valence and danceability for Baby by Lil Baby & DaBaby is 0.6405.
+The average between valence and danceability for Look What God Gave Her by Thomas Rhett is 0.8454999999999999.
+The average between valence and danceability for Good As You by Kane Brown is 0.614.
+The average between valence and danceability for Clout by Offset Featuring Cardi B is 0.6715.
+The average between valence and danceability for Love Lies by Khalid & Normani is 0.383.
+The average between valence and danceability for One Thing Right by Marshmello & Kane Brown is 0.515.
+The average between valence and danceability for Cash Shit by Megan Thee Stallion Featuring DaBaby is 0.7350000000000001.
+The average between valence and danceability for Tequila by Dan + Shay is 0.4885.
+The average between valence and danceability for Shotta Flow by NLE Choppa is 0.731.
+The average between valence and danceability for Hot Girl Summer by Megan Thee Stallion, Nicki Minaj & Ty Dolla $ign is 0.5840000000000001.
+The average between valence and danceability for Talk You Out Of It by Florida Georgia Line is 0.6045.
+The average between valence and danceability for Beautiful by Bazzi Featuring Camila Cabello is 0.4435.
+The average between valence and danceability for Eyes On You by Chase Rice is 0.6459999999999999.
+The average between valence and danceability for All To Myself by Dan + Shay is 0.635.
+The average between valence and danceability for Boyfriend by Ariana Grande & Social House is 0.6014999999999999.
+The average between valence and danceability for Walk Me Home by P!nk is 0.542.
+The average between valence and danceability for Robbery by Juice WRLD is 0.6114999999999999.
