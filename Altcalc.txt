@@ -1,0 +1,50 @@
+The average between valence and danceability for Trampoline by SHAED is 0.613.
+The average between valence and danceability for High Hopes by Panic! At The Disco is 0.63.
+The average between valence and danceability for Happier by Marshmello & Bastille is 0.679.
+The average between valence and danceability for Cringe by Matt Maeson is 0.586.
+The average between valence and danceability for Gloria by The Lumineers is 0.591.
+The average between valence and danceability for 3 Nights by Dominic Fike is 0.846.
+The average between valence and danceability for Broken by lovelytheband is 0.5880000000000001.
+The average between valence and danceability for Doin' Time by Lana Del Rey is 0.5725.
+The average between valence and danceability for Ready To Let Go by Cage The Elephant is 0.732.
+The average between valence and danceability for Bad Guy by Billie Eilish is 0.6315.
+The average between valence and danceability for Hey Look Ma, I Made It by Panic! At The Disco is 0.5785.
+The average between valence and danceability for Alligator by Of Monsters And Men is 0.486.
+The average between valence and danceability for Missed Connection by The Head And The Heart is 0.6055.
+The average between valence and danceability for You're Somebody Else by flora cash is 0.474.
+The average between valence and danceability for Superposition by Young The Giant is 0.5105.
+The average between valence and danceability for Chlorine by twenty one pilots is 0.46199999999999997.
+The average between valence and danceability for Longshot by Catfish And The Bottlemen is 0.473.
+The average between valence and danceability for Lo/Hi by The Black Keys is 0.6565.
+The average between valence and danceability for 100 Bad Days by AJR is 0.632.
+The average between valence and danceability for Good Things Fall Apart by ILLENIUM & Jon Bellion is 0.5425.
+The average between valence and danceability for Social Cues by Cage The Elephant is 0.8005.
+The average between valence and danceability for Bury A Friend by Billie Eilish is 0.5505.
+The average between valence and danceability for Guiding Light by Mumford & Sons is 0.42000000000000004.
+The average between valence and danceability for Hurt by Oliver Tree is 0.49349999999999994.
+The average between valence and danceability for The Hype by twenty one pilots is 0.4505.
+The average between valence and danceability for My Blood by twenty one pilots is 0.7115.
+The average between valence and danceability for Pressure by Muse is 0.673.
+The average between valence and danceability for "99" by Barns Courtney is 0.633.
+The average between valence and danceability for still feel. by half alive is 0.747.
+The average between valence and danceability for Natural by Imagine Dragons is 0.46199999999999997.
+The average between valence and danceability for Love It If We Made It by The 1975 is 0.26755.
+The average between valence and danceability for Go by The Black Keys is 0.5349999999999999.
+The average between valence and danceability for Bad Liar by Imagine Dragons is 0.23285.
+The average between valence and danceability for Beloved by Mumford & Sons is 0.381.
+The average between valence and danceability for Running Up That Hill by Meg Myers is 0.53.
+The average between valence and danceability for Can't Knock The Hustle by Weezer is 0.7110000000000001.
+The average between valence and danceability for Home by morgxn Featuring WALK THE MOON is 0.753.
+The average between valence and danceability for Joy by Bastille is 0.459.
+The average between valence and danceability for Harmony Hall by Vampire Weekend is 0.6265000000000001.
+The average between valence and danceability for Die Happy by DREAMERS is 0.7075.
+The average between valence and danceability for Choke by I Dont Know How But They Found Me is 0.5495.
+The average between valence and danceability for Why Did You Run? by Judah & The Lion is 0.4255.
+The average between valence and danceability for Dissolve by Absofacto is 0.78.
+The average between valence and danceability for Northern Lights by Death Cab For Cutie is 0.5895.
+The average between valence and danceability for You Should See Me In A Crown by Billie Eilish is 0.5005000000000001.
+The average between valence and danceability for Fast Talk by Houses is 0.511.
+The average between valence and danceability for It Doesn't Matter Why by Silversun Pickups is 0.5435000000000001.
+The average between valence and danceability for Worst Nites by Foster The People is 0.675.
+The average between valence and danceability for Father Of All... by Green Day is 0.592.
+The average between valence and danceability for Maybe, I'm Afraid by lovelytheband is 0.2615.
