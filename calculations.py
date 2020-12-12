@@ -16,6 +16,8 @@ fname3 = "Altcalc.txt"
 
 conn = sqlite3.connect('Music.db') 
 cur = conn.cursor() 
+#Hot100avd, Popavg, and Altavg calculate the average value between valence and danceability, thus observing whether the valence and danceability for observing-
+#the existence of a trend in the average between Valence and Danceability for each song.
 
 def Hot100avg():
     cur.execute("SELECT Hot100.title, Hot100.artist, Hot100Valence.valence, Hot100Valence.danceability FROM Hot100 JOIN Hot100Valence ON Hot100.rank = Hot100Valence.rank")
@@ -26,20 +28,11 @@ def Hot100avg():
             title = row[0]
             artist = row[1]
             val = row[2]
-            # print(val)
             dance = row[3]
-            # print(dance)
-
             _sum = val + dance
             _avg = _sum/2.0
-            # print(_avg)
-            # lst.append(_avg)
             f.write(f"The average between valence and danceability for {title} by {artist} is {_avg}.\n")
     
-    # f = open(fname, "r")
-    # print(f.read())
-
-    # return lst
 
 def Popavg():
     cur.execute("SELECT Pop.title, Pop.artist, PopValence.valence, PopValence.danceability FROM Pop JOIN PopValence ON Pop.rank = PopValence.rank")
@@ -50,45 +43,27 @@ def Popavg():
             title = row[0]
             artist = row[1]
             val = row[2]
-            # print(val)
             dance = row[3]
-            # print(dance)
-
             _sum = val + dance
             _avg = _sum/2.0
-            # print(_avg)
-            # lst.append(_avg)
             f.write(f"The average between valence and danceability for {title} by {artist} is {_avg}.\n")
     
-    f = open(fname2, "r")
-    print(f.read())
-
 def Altavg():
     cur.execute("SELECT Alt.title, Alt.artist, AltValence.valence, AltValence.danceability FROM Alt JOIN AltValence ON Alt.rank = AltValence.rank")
     
-    # lst = []
     with open(fname3, "w") as f:
         for row in cur:
             title = row[0]
             artist = row[1]
             val = row[2]
-            # print(val)
             dance = row[3]
-            # print(dance)
-
             _sum = val + dance
             _avg = _sum/2.0
-            # print(_avg)
-            # lst.append(_avg)
             f.write(f"The average between valence and danceability for {title} by {artist} is {_avg}.\n")
     
-    f = open(fname3, "r")
-    print(f.read())
-
-
-
 # VISUALIZATIONS
-
+#xy methods create a list of tuples ([rank],[valence]) for the first three
+#dance methods create a list of tuples ([rank],[danceability])
 def hot100xy():
     valences = []
     ranks = []
@@ -98,11 +73,8 @@ def hot100xy():
         valence = row[1]
         ranks.append(rank)
         valences.append(valence)
-
     xvals = ranks
     yvals = valences
- 
-
     tup = ranks,valences
     return tup
 
@@ -118,7 +90,6 @@ def popxy():
 
     xvals = ranks
     yvals = valences
-
     tup = xvals, yvals
     return tup
 
@@ -134,7 +105,6 @@ def altxy():
 
     xvals = ranks
     yvals = valences
-
     tup = xvals, yvals
     return tup
 
@@ -150,8 +120,6 @@ def dancehot100xy():
 
     xvals = ranks
     yvals = dances
- 
-
     tup = ranks,dances
     return tup
 
@@ -167,7 +135,6 @@ def dancepopxy():
 
     xvals = ranks
     yvals = dances
-
     tup = xvals, yvals
     return tup
 
@@ -183,13 +150,12 @@ def dancealtxy():
 
     xvals = ranks
     yvals = dances
-
     tup = xvals, yvals
     return tup
 
 
 def visualize():
-
+    #Grabs rank and valence
     hot100x = hot100xy()[0]
     hot100y = hot100xy()[1]
 
@@ -199,6 +165,7 @@ def visualize():
     altx = altxy()[0]
     alty = altxy()[1]
 
+    #Grabs rank and danceability
     _hot100x = dancehot100xy()[0]
     _hot100y = dancehot100xy()[1]
 
@@ -208,16 +175,15 @@ def visualize():
     _altx = dancealtxy()[0]
     _alty = dancealtxy()[1]
 
-
+    #Creating visualizations
     fig = plt.figure()
     
-    #light pink, light blue, lavender
     ax = fig.add_subplot(231)
     ax.scatter(hot100x, hot100y, c = 'lightpink')
     ax.set_xlabel("Ranks")
     ax.set_ylabel("Valence")
     ax.set_title("Valence of the Top Hot100 Songs in 2019")
-
+    #line of best fit
     ax.plot(np.unique(hot100x), np.poly1d(np.polyfit(hot100x, hot100y, 1))(np.unique(hot100x)), c = 'black')
 
     ax2 = fig.add_subplot(232)
@@ -225,7 +191,7 @@ def visualize():
     ax2.set_xlabel("Ranks")
     ax2.set_ylabel("Valence")
     ax2.set_title("Valence of the Top Pop Songs in 2019")
-
+    #line of best fit
     ax2.plot(np.unique(popx), np.poly1d(np.polyfit(popx, popy, 1))(np.unique(popx)), c = 'black')
 
     ax3 = fig.add_subplot(233)
@@ -233,7 +199,7 @@ def visualize():
     ax3.set_xlabel("Ranks")
     ax3.set_ylabel("Valence")
     ax3.set_title("Valence of the Top Alt Songs in 2019")
-
+    #line of best fit
     ax3.plot(np.unique(altx), np.poly1d(np.polyfit(altx, alty, 1))(np.unique(altx)), c = 'black')
 
     ax4 = fig.add_subplot(234)
@@ -241,7 +207,7 @@ def visualize():
     ax4.set_xlabel("Ranks")
     ax4.set_ylabel("Danceability")
     ax4.set_title("Danceability of the Top Hot100 Songs in 2019")
-
+    #line of best fit
     ax4.plot(np.unique(_hot100x), np.poly1d(np.polyfit(_hot100x, _hot100y, 1))(np.unique(_hot100x)), c = 'black')
 
     ax5 = fig.add_subplot(235)
@@ -249,7 +215,7 @@ def visualize():
     ax5.set_xlabel("Ranks")
     ax5.set_ylabel("Danceability")
     ax5.set_title("Danceability of the Top Pop Songs in 2019")
-
+    #line of best fit
     ax5.plot(np.unique(_popx), np.poly1d(np.polyfit(_popx, _popy, 1))(np.unique(_popx)), c = 'black')
 
     ax6 = fig.add_subplot(236)
@@ -257,7 +223,7 @@ def visualize():
     ax6.set_xlabel("Ranks")
     ax6.set_ylabel("Danceability")
     ax6.set_title("Danceability of the Top Alt Songs in 2019")
-
+    #line of best fit
     ax6.plot(np.unique(_altx), np.poly1d(np.polyfit(_altx, _alty, 1))(np.unique(_altx)), c = 'black')
 
     plt.show()
@@ -269,9 +235,13 @@ def main():
     Hot100avg()
     Popavg()
     Altavg()
+    hot100xy()
+    popxy()
+    altxy()
+    dancehot100xy()
     dancepopxy()
+    dancealtxy()
     visualize()
-    
     
 
 
