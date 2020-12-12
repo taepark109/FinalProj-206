@@ -17,18 +17,17 @@ def alt():
 def hot100():
     chart = billboard.ChartData('hot-100-songs', year = 2019)
     return chart
-
-
     
 # Database implementation
+
 # #Set up Hot100 chart in Music.db
 def setuphot100():
-    #Hot100 is the only table with 100 tracks
     conn = sqlite3.connect('Music.db') 
     cur = conn.cursor()
-
+    #Create Hot100 Table
     cur.execute('''CREATE TABLE IF NOT EXISTS Hot100
         (title TEXT, artist TEXT, rank INTEGER)''')
+    #Code for INSERTING 25(UNIQUE) items at a time
     title_lst = []
     chart = hot100()
     count = 0
@@ -56,9 +55,10 @@ def setuphot100():
 def setupPop():
     conn = sqlite3.connect('Music.db') 
     cur = conn.cursor()
-
+    #Create Pop Table
     cur.execute('''CREATE TABLE IF NOT EXISTS Pop
         (title TEXT, artist TEXT, rank INTEGER)''')
+    #Code for INSERTING 25(UNIQUE) items at a time
     title_lst = []
     chart = pop()
     count = 0
@@ -85,9 +85,10 @@ def setupPop():
 def setupAlt():
     conn = sqlite3.connect('Music.db') 
     cur = conn.cursor()
-
+    #Create Alt Table
     cur.execute('''CREATE TABLE IF NOT EXISTS Alt
         (title TEXT, artist TEXT, rank INTEGER)''')
+    #Code for INSERTING 25(UNIQUE) items at a time
     title_lst = []
     chart = alt()
     count = 0
@@ -112,10 +113,11 @@ def setupAlt():
 
 
 def main():
-    # print(pop())
-    # print(alt())
-    # print(hot100())
-    
+    #Obtains Chart data
+    pop()
+    alt()
+    hot100()
+    #Functions to set up charts in Music.db
     setuphot100()
     setupAlt()
     setupPop()
